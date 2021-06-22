@@ -1,3 +1,5 @@
+/*transition: <property> || <duration> || <timing-function> || <delay> [, ...];*/
+
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 :root {
   --text-primary: #b6b6b6;
@@ -15,44 +17,66 @@ html {
   padding: 0;
 }
 
+/*transition going off screen*/
 .wrapper nav ul {
   position: fixed;
-  left: 0;
+  left: -100%;
   top: 0;
   width: 0;
-  /* height: 0; */
-  padding: 0;
-  opacity: 0;
-  overflow: auto;
-  /*background-color: var(--text-secondary);*/
-
+  /* overflow: auto; */
+  padding: 15px 0;
   box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-  /*border: 1px solid #000;
-  */
-  transition: all 1s ease-in-out;
-  -webkit-transition: all 1s ease-in-out;
-  -moz-transition: all 1s ease-in-out;
-  -ms-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in;
+  -webkit-transition: all 1s ease-in;
+  -moz-transition: all 1s ease-in;
+  -ms-transition: all 1s ease-in;
+  -o-transition: all 1s ease-in;
 }
+
+/*transition coming to screen -what to do when ul is .active after click*/
 .wrapper ul.active {
   left: 0;
-  top: 0;
-  opacity: 1;
   width: 100%;
-  /* height: auto; */
-  /* padding: 10px 50px; */
+  transition: all 0.5s ease-in;
+  -webkit-transition: all 0.5s ease-in;
+  -moz-transition: all 0.5s ease-in;
+  -ms-transition: all 0.5s ease-in;
+  -o-transition: all 0.5s ease-in;
 }
 
+/*transition going off screen*/
 .wrapper li {
-  padding: 5px 0;
+  /* padding: 5px 0; */
   list-style: none;
   text-align: center;
+  opacity: 0;
+  transition: opacity 0.7s ease-out;
+  -webkit-transition: opacity 0.7s ease-out;
+  -moz-transition: opacity 0.7s ease-out;
+  -ms-transition: opacity 0.7s ease-out;
+  -o-transition: opacity 0.7s ease-out;
 }
+/*transition going to screen*/
+.wrapper ul.active li {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+  -webkit-transition: opacity 1s ease-in;
+  -moz-transition: opacity 1s ease-in;
+  -ms-transition: opacity 1s ease-in;
+  -o-transition: opacity 1s ease-in;
+}
+.wrapper ul li.active a {
+  border-bottom: 2px solid red;
+}
+
+.wrapper ul li:hover {
+  cursor: pointer;
+  /* background-color: var(--text-secondary); */
+}
+
 .wrapper a {
   text-decoration: none;
   font-size: 1.5rem;
-  /* padding: 5px auto; */
   color: var(--bg-secondary);
 }
 
@@ -63,7 +87,6 @@ html {
   display: inline-block;
   cursor: pointer;
   padding: 3px;
-  /* background: red; */
   border: 1px solid #000;
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -101,4 +124,35 @@ html {
   -moz-transform: translateY(-8px) rotate(-45deg);
   -ms-transform: translateY(-8px) rotate(-45deg);
   -o-transform: translateY(-8px) rotate(-45deg);
+}
+
+@media screen and (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+  .wrapper nav ul {
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .wrapper nav ul li {
+    opacity: 1;
+    margin: 0 15px;
+  }
+
+  /*animation from left to right*/
+  .wrapper ul li a:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: red;
+    transition: width 0.3s;
+  }
+
+  .wrapper ul li a:hover::after {
+    width: 100%;
+  }
 }
