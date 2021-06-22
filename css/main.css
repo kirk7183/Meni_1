@@ -46,7 +46,7 @@ html {
 
 /*transition going off screen*/
 .wrapper li {
-  /* padding: 5px 0; */
+  padding: 5px 0;
   list-style: none;
   text-align: center;
   opacity: 0;
@@ -139,7 +139,8 @@ html {
 
   .wrapper nav ul li {
     opacity: 1;
-    margin: 0 15px;
+    margin: 0;
+    padding: 0;
   }
 
   /*animation from left to right*/
