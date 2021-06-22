@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+:root {
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+}
+*,
+body,
+html {
+  box-sizing: border-box;
+  font-size: 12px;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper nav ul {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 0;
+  /* height: 0; */
+  padding: 0;
+  opacity: 0;
+  overflow: auto;
+  /*background-color: var(--text-secondary);*/
+
+  box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+  /*border: 1px solid #000;
+  */
+  transition: all 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+}
+.wrapper ul.active {
+  left: 0;
+  top: 0;
+  opacity: 1;
+  width: 100%;
+  /* height: auto; */
+  /* padding: 10px 50px; */
+}
+
+.wrapper li {
+  padding: 5px 0;
+  list-style: none;
+  text-align: center;
+}
+.wrapper a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  /* padding: 5px auto; */
+  color: var(--bg-secondary);
+}
+
+.hamburger {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  display: inline-block;
+  cursor: pointer;
+  padding: 3px;
+  /* background: red; */
+  border: 1px solid #000;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.hamburger .bar {
+  display: block;
+  width: 23px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(47deg);
+  -webkit-transform: translateY(8px) rotate(47deg);
+  -moz-transform: translateY(8px) rotate(47deg);
+  -ms-transform: translateY(8px) rotate(47deg);
+  -o-transform: translateY(8px) rotate(47deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+  -webkit-transform: translateY(-8px) rotate(-45deg);
+  -moz-transform: translateY(-8px) rotate(-45deg);
+  -ms-transform: translateY(-8px) rotate(-45deg);
+  -o-transform: translateY(-8px) rotate(-45deg);
+}
