@@ -1,5 +1,5 @@
-# Meni_1
+# Menu_1
 
-Responsive animated Meni
+Responsive animated Menu
 
 HTML & CSS
